@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import type { Message, WordInfo, Correction } from '../types';
-import WordTooltip from './WordTooltip';
-import { CheckCircleIcon, LightBulbIcon } from './icons';
+import type { Message, WordInfo, Correction } from '../types.ts';
+import WordTooltip from './WordTooltip.tsx';
+import { CheckCircleIcon, LightBulbIcon } from './icons.tsx';
 
 interface MessageBubbleProps {
   message: Message;

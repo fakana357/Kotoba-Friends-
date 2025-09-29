@@ -1,7 +1,7 @@
 
 import React from 'react';
-import type { Character } from '../types';
-import { TrashIcon, PencilIcon } from './icons';
+import type { Character } from '../types.ts';
+import { TrashIcon, PencilIcon } from './icons.tsx';
 
 interface CharacterListProps {
   characters: Character[];

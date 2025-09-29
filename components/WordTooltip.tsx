@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
-import type { WordInfo } from '../types';
-import { XIcon } from './icons';
+import type { WordInfo } from '../types.ts';
+import { XIcon } from './icons.tsx';
 
 interface WordTooltipProps {
   wordInfo: WordInfo;

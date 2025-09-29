@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Modal from './Modal';
-import { XCircleIcon } from './icons';
+import Modal from './Modal.tsx';
+import { XCircleIcon } from './icons.tsx';
 
 interface ErrorModalProps {
   error: string;

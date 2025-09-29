@@ -1,12 +1,12 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import type { Character, Message, MessageContent, WordInfo, Correction } from '../types';
-import { getChatResponse, generateInChatImage, fileToBase64 } from '../services/geminiService';
-import MessageBubble from './MessageBubble';
-import CorrectionModal from './CorrectionModal';
-import ErrorModal from './ErrorModal';
-import Button from './Button';
-import { ArrowLeftIcon, PaperAirplaneIcon, PaperClipIcon, SparklesIcon } from './icons';
+import type { Character, Message, MessageContent, WordInfo, Correction } from '../types.ts';
+import { getChatResponse, generateInChatImage, fileToBase64 } from '../services/geminiService.ts';
+import MessageBubble from './MessageBubble.tsx';
+import CorrectionModal from './CorrectionModal.tsx';
+import ErrorModal from './ErrorModal.tsx';
+import Button from './Button.tsx';
+import { ArrowLeftIcon, PaperAirplaneIcon, PaperClipIcon, SparklesIcon } from './icons.tsx';
 
 interface ChatViewProps {
   character: Character;

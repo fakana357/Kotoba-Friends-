@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import type { Character } from '../types';
-import { generateCharacterDescription, generateCharacterAvatar, fileToBase64 } from '../services/geminiService';
-import Button from './Button';
-import { SparklesIcon, UploadIcon } from './icons';
+import type { Character } from '../types.ts';
+import { generateCharacterDescription, generateCharacterAvatar, fileToBase64 } from '../services/geminiService.ts';
+import Button from './Button.tsx';
+import { SparklesIcon, UploadIcon } from './icons.tsx';
 
 interface CharacterCreatorProps {
   onCancel: () => void;

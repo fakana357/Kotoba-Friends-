@@ -1,8 +1,8 @@
 
 import React from 'react';
-import type { Correction } from '../types';
-import { CheckCircleIcon, LightBulbIcon } from './icons';
-import Modal from './Modal';
+import type { Correction } from '../types.ts';
+import { CheckCircleIcon, LightBulbIcon } from './icons.tsx';
+import Modal from './Modal.tsx';
 
 interface CorrectionModalProps {
   correction: Correction;

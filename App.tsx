@@ -1,13 +1,13 @@
 
 import React, { useState, useCallback, useRef } from 'react';
-import { Character, AppData } from './types';
-import useLocalStorage from './hooks/useLocalStorage';
-import CharacterList from './components/CharacterList';
-import CharacterCreator from './components/CharacterCreator';
-import ChatView from './components/ChatView';
-import { PlusIcon, UploadIcon, DownloadIcon, KeyIcon } from './components/icons';
-import Button from './components/Button';
-import ApiKeyModal from './components/ApiKeyModal';
+import { Character, AppData } from './types.ts';
+import useLocalStorage from './hooks/useLocalStorage.ts';
+import CharacterList from './components/CharacterList.tsx';
+import CharacterCreator from './components/CharacterCreator.tsx';
+import ChatView from './components/ChatView.tsx';
+import { PlusIcon, UploadIcon, DownloadIcon, KeyIcon } from './components/icons.tsx';
+import Button from './components/Button.tsx';
+import ApiKeyModal from './components/ApiKeyModal.tsx';
 
 // Base64 encoded images for default characters
 const kentaAvatar = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAn+SURBVHhe7Vt7bFxVFb5ndu/d23t9bDv2nAQnkDxpSkcp1YGatCSpSoCEQCH8QESISRQSCYgfKkC+QCgQHyJRgfiRSCUoBRUqTZwmaZq2cZw4dtT6sW3v9d57ZvbM2Lvbe33s2k5CNjP33zn/+c/5n//5n3Nm+J+GUIQkSXItIVRCqIRECYIYiEGIYYhBCIIglBCkIYYk6R/Hk+fP8+TJ4zSdmepn8ej/mZz6Xzyf+V/m/8lEiLLj1NRU8u3bt6ipqaHFxcVDpXWsrq5i6dKlFBcXo7m5mSeffJLHjh7l0uXL2f/YY5RMTWL27Nn49ttv2L9/PzZt2sTkyZPJy8tDXV0dANi3bx/79u3D5MmT+f3vf4+ioiJ27NiBrVu3snDhQpKSkvjFL37BkiVLWLhwIQCQkpLCnj17WLduHY4fP86ePXs4e/Yszp49i4sXLzJ37lysXLkSCxYsYNOmTdiwYQP+/e//4sSJE3z961/nhRdeID8/n6SkJF599VXMmjULa9asQWlpKXPmzOHcuXP86Ec/YvLkyXz22WcAwLp169i6dSuWLFnCHXfcwb333suCBQsAABaLhaSkJN555x0WL17M7t27ERcXh+XLl2P9+vXs3r0bVqsVeXl5zJgxA5WVlWzevJmPP/6YgwcP8vvf/z5bt26loKAAdrsdycnJfP3rX2fHjh0sX76cffv2MXnyZACguroaGzduZMuWLRQXF+Pss8/m+eefZ+LEiTzzzDM888wz3Hnnnex7773MmjWLX/3qV7z11lt4PB4WL17MTz/9xNSpU7FlyxaWL1/O2rVrmTRpEsuXL8e6detYtWoV69atw6JFi9ixYwfLly9n3bp1/PKXv2T27Nm8/vrrXHDBBfjtb3/Lhg0bsGjRIvbu3cvWrVsZOnQoqampJCcn89VXX3HmmWcybdo0Fi1axMyZM3nhhRew2WxcddVVeOutt1i2bBnFxcXcddddfPTRR/nFL36B0+lk6tSpLFq0CFu2bOHll1/m8ccfZ/LkyTgcDm666SaSkpIYMmQIixcvZubMmVxyySW88847/PrXv2bhwoV89tlnXH755bz//vscOHCA4cOHY7FY0NbWxtatW7nllluYMWMG3/zmN9m2bRuvvPIK+/fv59ixY4SHh+NwOLjkkkuYMWMGbDYbBQUFvPjii3z/+9/n/PnzBAQE8Otf/5qNGzfyzjvv8NFHH9HU1MT06dNZvHgxr7zyCjdccAEqlYrOnTvzzjvvsH79ev74xz9y/PhxRo8ezYQJE7jqqqv4+9//zqJFi/j888+ZNWsWtWJ71qxZePXVVxk8eDDvvvsuFRUVPPXUU2zYsIHFixfz73//m4MHDzJ27FgsFgu/+c1vOHnyJABw9uxZbN26lQcffJDs7Gw2b97MVVddhslkwpw5czAYDLi6urpYWFgwZ84cDhw4wDfffMPSJUv49Kc/zQsvvMCcOXO49NJLOXToke+//56vv/6aefPmMXXqVCZNmoRDhw5x+PBhVq1ahYULF/Kxj32Mmpoarrvuuvzwhz/kiiuuoLGxkSNHjvDqq6/y+c9/nhtuuIEvvviCRx99lAkTJuD3+7nppptoaGjguuuu48svv8Szzz5LWFiYo49evXrx7rvvsnXrVl588UXuu+++BAUFMX36dDz77LN4e3tw7NgxPvnkEw4ePEiXLl3w1ltv8fa24wMf+AAPPfQQS5Ys4ZFHHiExMREvv/wyL7/8MqtXr+Zzn/sczz77LIcOHcKKFSvy+c9/nm3btlFdXY1AIICenh4OHDiAs2fPsmbNGjweDwkJCVi3bh1XXHEFDoeDgoICli1bxl//+lc8Hk/e3tVqNZMmTeKDDz7gnXfe4corr6Rnz57k5+fjl7/8JWazmY8//pjNmzcjOTmZadOm8cYbb3DHHXcQExODw+FAWloaO3fu5Omnn6asrIyZM2eSl5eHc+fOERMTw5YtW3jvvffYvXs3JSUlPPHEE7z88stcd911jBo1CpMmTeLXv/41aWlpvP3227z//vssXbqUmTNn4urVq7S1teHmm2/mscceQ61W43Q6ycnJYe7cuUybNg2vvPIK+/fvx9VXX43VamXEiBHousXExDB16lQefPBBvvGNb/DMM8+Qnp7OFVdcQWJiIscee2zW3G+a36o2CUEohFBCkAgFhRBCCUEshCBCCEMghBCCFCSZ/y/tH8oQAAAAAElFTkSuQmCC';

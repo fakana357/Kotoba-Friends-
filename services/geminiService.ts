@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, GenerateContentResponse, Modality, Type } from "@google/genai";
-import type { Character, Message, GeminiChatResponse } from '../types';
+import type { Character, Message, GeminiChatResponse } from '../types.ts';
 
 const getAiClient = (apiKey: string) => {
     if (!apiKey) {
