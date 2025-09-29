@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ことばフレンズ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              jp: ['Noto Sans JP', 'sans-serif'],
+            },
+            colors: {
+              'primary': '#3B82F6', // Blue-500
+              'primary-focus': '#2563EB', // Blue-600
+              'secondary': '#F59E0B', // Amber-500
+              'secondary-focus': '#D97706', // Amber-600
+              'base-100': '#FFFFFF', // White
+              'base-200': '#F9FAFB', // Gray-50
+              'base-300': '#E5E7EB', // Gray-200
+              'base-content': '#111827', // Gray-900
+              'info': '#3B82F6', // Blue-500
+              'success': '#16A34A', // Green-600
+              'warning': '#F59E0B', // Amber-500
+              'error': '#DC2626', // Red-600
+            },
+            keyframes: {
+              'fade-in': {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+               'pulse-glow': {
+                '0%, 100%': { boxShadow: '0 0 0 0 rgba(59, 130, 246, 0.4)' },
+                '50%': { boxShadow: '0 0 10px 5px rgba(59, 130, 246, 0)' },
+              }
+            },
+            animation: {
+              'fade-in': 'fade-in 0.5s ease-out forwards',
+              'pulse-glow': 'pulse-glow 2s infinite',
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-base-100 text-base-content font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
